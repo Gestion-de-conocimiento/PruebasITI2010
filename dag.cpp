@@ -5,7 +5,7 @@
 
 using namespace std;
  
- // DEPTH FIRST SEARCH WITH BACKTRACKING
+// DEPTH FIRST SEARCH WITH BACKTRACKING
 
 // Nodos de las listas de adyacencia
 typedef struct node {
@@ -27,6 +27,7 @@ vector<int> nodes = {};
 int vertex_list[100];
 int vertex_count = 0;
 int NODES = 21;
+//int NODES = 0;
 string caminos = "";
  
 void add_edge(int i,int j,graph_node g[]){

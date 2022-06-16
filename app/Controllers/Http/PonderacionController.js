@@ -176,6 +176,7 @@ class PonderacionController {
         });
 
     }
+  
     async obtener_caminos_red_bayesiana({ response }) {
 
         let i = 0;
@@ -183,13 +184,11 @@ class PonderacionController {
         let k = 0;
         let temas = await Database.raw('select temas.id as id, temas.nombre_tema as nombre, temas.nivel as nivel, dificultad from temas order by nivel desc;');
         temas = temas[0];
-
         const relaciones = await Database.select('id_padre', 'id_hijo').from('relacion_primarias');
-
         let total_relaciones = relaciones.length;
         let total_temas = temas.length;
+        
         var texto = "nodos\n";
-
         for (i = 0; i < total_temas; i++) {
             if (i == total_temas - 1) {
                 texto = texto + temas[i].id;
@@ -203,43 +202,26 @@ class PonderacionController {
             var hijo = relaciones[i].id_hijo;
             texto = texto + padre + "-" + hijo + "\n";
         }
-
         fs.writeFileSync('nodos', texto);
-
-        var output = execSync('g++ dag.cpp -o dag', {
+         var output = execSync('g++ dag.cpp -o dag', {
             encoding: 'utf-8'
         }); // the default is 'buffer'
+        
         var caminos = execSync('./dag ' + total_temas, {
             encoding: 'utf-8'
         });
-
         var paths = JSON.parse(caminos);
-
-        var caminoss = paths.caminos //respuesta de servidor
-
-        /*var caminos_primera_rama = []
-        
-        
-        for(i=0;i<caminoss.length;i++){
-        	if( caminoss[i][1] == 2 ){
-        		caminos_primera_rama.push( caminoss[i].slice(2, caminoss[i].length) ); 
-        	}
-        }*/
-
-
+       
+        var caminoss = paths.caminos
         var solo_arreglo = []
         for (j = 0; j < caminoss.length; j++) {
             for (k = 0; k < caminoss[j].length; k++) {
                 solo_arreglo.push(caminoss[j][k]);
             }
         }
-
-
-
         let uniqueArray = solo_arreglo.filter((c, index) => {
             return solo_arreglo.indexOf(c) === index;
         });
-
         return response.json({
             caminos: caminoss,
             nodos: uniqueArray,
@@ -247,6 +229,8 @@ class PonderacionController {
         });
 
     }
+  
+  
     async obtener_ramas({ response, auth }) {
         let ramas = await Database.raw('select id, nivel from temas where nivel = 1;');
         return response.json(ramas);
@@ -280,6 +264,10 @@ class PonderacionController {
         }
 
         fs.writeFileSync('nodos', texto);
+      
+      // Close the file descriptor
+        fs.close();
+      
 
         const output = execSync('g++ dag.cpp -o dag', {
             encoding: 'utf-8'

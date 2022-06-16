@@ -545,12 +545,6 @@
 
                                             <label id="msg_porcentaje"></label>
 
-
-
-											
-
-
-
                                             <button type="button" data-dismiss="modal"
                                                 class="btn btn-secondary float-right btn-lg mt-4 "
                                                 style="border-radius: 4px">
@@ -569,32 +563,22 @@
                                 </div>
                             </div>
 
-
                             <!-- Modal -->
                             <div class="modal animated animate__bounceIn" id="modalDeCarga" role="dialog"
                                 aria-labelledby="modalDeCarga" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-
                                             <center>
-
-
                                                 <div class="spinner-border text-primary" role="status">
                                                     <span class="sr-only">Loading...</span>
                                                 </div>
                                                 Cargando
-
                                             </center>
-
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
 
                             <!--MODAL PARA CAMBIAR DE COLOR AL NODO-->
 
@@ -624,66 +608,50 @@
                                                 <i class="fas fa-save"></i> Guardar
                                             </button>
 
-
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
-
                             <div class="modal animated animate__bounceIn" id="CambiarConexionPadre" role="dialog"
                                 aria-labelledby="CambiarConexionPadre" aria-hidden="true" data-focus="false">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-
                                             <h2 id="modalTitle"> Cambiar conexión parental </h2>
-
                                             <div class="form-group">
                                                 <span>Nodo seleccionado:</span>
                                                 <select id="childrenSelect" class="js-example-basic-multiple"
                                                     style="width:100%" disabled></select>
                                             </div>
-
                                             <div class="form-group">
                                                 <span>Elija el nodo padre a cambiar:</span>
                                                 <select id="oldParentSelect" class="js-example-basic-multiple"
                                                     style="width:100%"></select>
                                                 <span id="mensaje_1" style="color: red;"></span>
                                             </div>
-
                                             <div class="form-group">
                                                 <span>Elija el nuevo padre:</span>
                                                 <select id="newParentSelect" class="js-example-basic-multiple"
                                                     style="width:100%"></select>
-
                                             </div>
-
                                             <div class="form-group">
                                                 <span>Seleccione el color de la conexión: </span>
                                                 <input type="color" id="colorParentConnection"
                                                     class="form-control form-control-color">
                                             </div>
-
-
                                             <button type="button" data-dismiss="modal"
                                                 class="btn btn-secondary float-right btn-lg mt-4 "
                                                 style="border-radius: 4px">
                                                 <i class="fas fa-ban"></i> Cerrar
                                             </button>
-
                                             <button class="btn btn-primary float-right btn-lg mt-4 mr-2"
                                                 onclick="changeParent()" style="border-radius: 4px">
                                                 <i class="fas fa-save"></i> Crear conexión
                                             </button>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

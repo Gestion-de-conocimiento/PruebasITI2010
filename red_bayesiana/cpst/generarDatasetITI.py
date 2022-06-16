@@ -1,19 +1,21 @@
 import requests
 import numpy as np
 import random
-#import mysql.connector
+import mysql.connector
 cptA=[]
 print("Cargando nodos...")
 URL = "http://localhost/arbol/caminoslibreria"
 r = requests.get(url = URL)
 data = r.json()
+
+print("UNO")
 numeros = []
 letras = []
 padres = []
 nodos = data['nodos']
 caminos = data['caminos']
 temas = data['temas']
-#cnx = mysql.connector.connect(user='root', password='PROYECTO1KMS', host='localhost', database='kms')
+cnx = mysql.connector.connect(user='root', password='PROYECTO1KMS', host='localhost', database='kms')
 numeros = []
 letras = []
 for i in range( len(nodos) ):
@@ -40,4 +42,5 @@ for i in range(len(nodos)):
                     padres_nodo_id.append( caminos[j][k-1] )
     padres.append(padres_nodo)
     padres_ids.append(padres_nodo_id)
-print(padres)
+for i in range(len(padres)):
+    print(padres[i])

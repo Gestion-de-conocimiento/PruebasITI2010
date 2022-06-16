@@ -316,9 +316,6 @@ class TemaController {
                 }
                 break;
             }
-            // 				limite++;
-            // 				if(limite == 10000)
-            // 					break;
         }
 
         var relations = {

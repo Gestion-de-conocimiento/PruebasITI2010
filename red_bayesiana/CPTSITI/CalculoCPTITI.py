@@ -1,12 +1,9 @@
-
-"""
 import requests
 import numpy as np
 import random
 import math
 from time import time
 import mysql.connector
-
 def asignar(indices,cp):
     if len(indices)>1:
         asignar(indices[1::],cp[indices[0]-1])
@@ -31,11 +28,12 @@ def recorrer(cpi,estado,idh,idsp):
             datos=(idh ,i+1 ,idsp,estado,float(cpi[i]))
             cursor1.execute(sql, datos)
             print(idh,i+1,idsp,estado,cpi[i])
-"""
-print("inicio")
+
+print("Cargando nodos")
 cptA=[]
-URL = "http://localhost/arbol/caminoslibreria"
+URL = "http://164.92.156.81/arbol/caminoslibreria"
 r = requests.get(url = URL)
+print("uno")
 data = r.json()
 numeros = []
 letras = []
@@ -49,7 +47,6 @@ for i in range( len(nodos) ):
             letras.append(temas[j]['nombre'])
     numeros.append(i)
 
-print("Cargando nodos")
 indices = dict(zip(letras,numeros))
 padres_ids = []
 for i in range(len(nodos)): 
@@ -89,7 +86,7 @@ PA =     [20,60,20]
 dataset = []
 
 print("Cargando dataset")
-with open("datasetSolo1eExperto.csv") as fname:
+with open("dataset.csv") as fname:
     lineas = fname.readlines()
     for linea in lineas:
         a= linea.split(sep=',')

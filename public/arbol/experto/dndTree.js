@@ -58,18 +58,18 @@ async function draw_tree(error, treeData) {
 	
     //debugger;
     await getSizeNode();
-	//await obtenerCaminos();    
-	await obtenerTotalTemas();
-	ramas = await obtenerRamas();
+		//await obtenerCaminos();    
+		await obtenerTotalTemas();
+		ramas = await obtenerRamas();
     ramas = ramas[0];
-	nodos_ordenados = await obtenerCaminos();
+		nodos_ordenados = await obtenerCaminos();
 	
     //$('#slider').foundation('slider', 'set_value', ratio);
     $('#slider').val(ratio);
     treeData = await getTreeFromBD(); // Await espera a que se termine de ejecutar la funcion para continuar a las demas lineas
 	
 	
-	//console.log(treeData);
+		//console.log(treeData);
 
     var totalNodes = 0;
     // Calculate total nodes, max label length
@@ -178,7 +178,7 @@ async function draw_tree(error, treeData) {
                 let padres = [];
                 await axios({
                     method: 'get',
-                    url: "http://159.223.190.216/temas/obtenerPadresConNombre/" + d.id,
+                    url: "http://146.190.238.64/temas/obtenerPadresConNombre/" + d.id,
                     headers: { 'content-type': 'application/x-www-form-urlencoded' },
                 }).then(function (response) {
                     padres = response.data[0];

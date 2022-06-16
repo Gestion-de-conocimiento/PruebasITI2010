@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 import os
 import pyAgrum as gum
 
-URL = "http://159.203.185.170/arbol/caminoslibreria"
+URL = "http://164.92.156.81/arbol/caminoslibreria"
 r = requests.get(url = URL)
-
 data = r.json()
 numeros = []
 letras = []
